@@ -1,11 +1,12 @@
+import { Request, Response } from "express";
+
 import { friends } from "../models/friends.model.js";
 
-
-function getFriends(req, res) {
+function getFriends(req: Request, res: Response) {
   res.json(friends);
 }
 
-function getFriend(req, res) {
+function getFriend(req: Request, res: Response) {
   const friendId = Number(req.params.friendId);
   const friend = friends[friendId];
 
@@ -18,7 +19,7 @@ function getFriend(req, res) {
   }
 }
 
-function createFriend(req, res) {
+function createFriend(req: Request, res: Response) {
   if (!req.body.name) {
     return res.status(400).json({ error: "Name is required" });
   }
@@ -29,7 +30,7 @@ function createFriend(req, res) {
   };
 
   friends.push(newFriend);
-  res.json(newFriend);
+  return res.json(newFriend);
 }
 
 export { getFriends, getFriend, createFriend };

@@ -1,14 +1,14 @@
-import express from "express";
+import express, { Request, Response } from "express";
 
 import {
   getFriends,
   createFriend,
   getFriend,
-} from "../controllers/friends.controller.js";
+} from "../controllers/friends.controller";
 
 const friendsRouter = express.Router();
 
-friendsRouter.use((req, res, next) => {
+friendsRouter.use((req: Request, res: Response, next) => {
   console.log(req.ip);
   next();
 });

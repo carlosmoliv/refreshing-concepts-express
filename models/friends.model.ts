@@ -1,4 +1,9 @@
-const friends = [
+interface IFriend {
+  id: number;
+  name: string;
+}
+
+const friends: IFriend[] = [
   {
     id: 0,
     name: "Albert Einstein",
